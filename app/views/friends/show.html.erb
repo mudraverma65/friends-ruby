@@ -1,10 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @friend %>
-
-<div>
-  <%= link_to "Edit this friend", edit_friend_path(@friend) %> |
-  <%= link_to "Back to friends", friends_path %>
-
-  <%= button_to "Destroy this friend", @friend, method: :delete %>
+<div class="card mb-3" style="max-width: 600px; margin: auto;">
+  <div class="card-body">
+    <h3 class="card-title"><%= @friend.first_name %> <%= @friend.last_name %></h3>
+    <p class="card-text">
+      <strong>Email:</strong> <%= @friend.email %><br>
+      <strong>Phone:</strong> <%= @friend.phone %><br>
+      <strong>Instagram:</strong> <%= @friend.instagram %>
+    </p>
+  </div>
+  <div class="card-footer text-center">
+    <div class="d-flex justify-content-center gap-2">
+      <%= link_to "Modify", edit_friend_path(@friend), class: "btn btn-secondary" %>
+      <%= link_to "All Friends", friends_path, class: "btn btn-success" %>
+      <%= button_to "Unfriend", @friend, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </div>
+  </div>
 </div>

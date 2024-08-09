@@ -1,27 +1,10 @@
-<div id="<%= dom_id friend %>">
-  <p>
-    <strong>First name:</strong>
-    <%= friend.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= friend.last_name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= friend.email %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= friend.phone %>
-  </p>
-
-  <p>
-    <strong>Instagram:</strong>
-    <%= friend.instagram %>
-  </p>
-
-</div>
+<tr id="<%= dom_id(friend) %>">
+  <td><%= friend.first_name %></td>
+  <td><%= friend.last_name %></td>
+  <td><%= friend.email %></td>
+  <td><%= friend.phone %></td>
+  <td><%= friend.instagram %></td>
+  <td><%= link_to "Show", friend, class: "btn btn-primary btn-sm" %></td>
+  <td><%= link_to "Edit", edit_friend_path(friend), class: "btn btn-warning btn-sm" %></td>
+  <td><%= link_to "Unfriend", friend, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></td>
+</tr>
