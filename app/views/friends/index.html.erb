@@ -16,8 +16,10 @@
   </thead>
   <tbody id="friends">
     <% @friends.each do |friend| %>
-      <%= render partial: "friend", locals: { friend: friend } %>
-    <% end %>
+      <% if friend.user == current_user %>
+        <%= render partial: "friend", locals: { friend: friend } %>
+      <% end %>
+    <%end%>
   </tbody>
 </table>
 
