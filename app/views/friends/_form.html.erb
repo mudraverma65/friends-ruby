@@ -38,9 +38,15 @@
           <%= form.text_field :instagram, class: "form-control" %>
         </div>
 
+        <div class="mb-3">
+          <%= form.hidden_field :user_id, value: current_user.id %>
+        </div>
+        
+
         <div class="d-grid">
           <%= form.submit "Save", class: "btn btn-primary" %>
         </div>
+
       <% end %>
     </div>
   </div>
