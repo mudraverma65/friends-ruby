@@ -1,26 +1,22 @@
-<% if user_signed_in?%>
-  <table class="table table-hover ">
-    <thead class="table-dark">
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Instagram</th>
-        <th>Unfriend</th>
-      </tr>
-    </thead>
-    <tbody id="friends">
-      <% @friends.each do |friend| %>
-        <% if friend.user == current_user %>
-          <%= render partial: "friend", locals: { friend: friend } %>
-        <% end %>
-      <%end%>
-    </tbody>
-  </table>
+	 <table class="table table-hover ">
+	 	<thead class="table-dark">
+	 		<tr>
+	 			<th>Name</th>
+	 			<th>Email</th>
+	 			<th>Phone</th>
+	 			<th>Instagram</th>
+	 			<th>Unfriend</th>
+	 		</tr>
+	 	</thead>
+	 	<tbody id="friends">
+	 		<% @friends.each do |friend| %>
+	 		<% if friend.user == current_user %>
+	 		<%= render partial: "friend", locals: { friend: friend } %>
+	 		<% end %>
+	 		<%end%>
+	 	</tbody>
+	 </table>
 
-  <%= link_to "New friend", new_friend_path, class: "btn btn-secondary" %>
-<% else %>
-  <h1>Hello!!</h1>
-  <p>First Rails Project</p>
-<% end %>
+	 <%= link_to "New friend", new_friend_path, class: "btn btn-secondary" %>
+
 

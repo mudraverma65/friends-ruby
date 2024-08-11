@@ -1,5 +1,21 @@
-<h1>Hello Mudra!!</h1>
-<p>First Rails Project</p>
+<div class="container" style="height: 95vh;">
+  <div class="card mx-auto d-flex align-items-center justify-content-center" style="max-width: 500px; height: 80%;">
+    <div class="card-body text-center">
+      <% if @home_meme %>
+        <div class="mb-3">
+          <img src="<%= @home_meme['url'] %>" class="card-img-top" alt="Meme image" style="max-height: 50vh; object-fit: contain;">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= @home_meme['title'] %></h5>
+          <p class="card-text">By: <%= @home_meme['author'] %></p>
+        </div>
+      <% else %>
+        <p>No meme available at the moment.</p>
+      <% end %>
+    </div>
+  </div>
 
-
-
+  <div class="text-center mt-3">
+    <%= button_to 'Next Meme', root_path, method: :get, class: 'btn btn-primary' %>
+  </div>
+</div>

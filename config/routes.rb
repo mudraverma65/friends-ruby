@@ -8,9 +8,8 @@ Rails.application.routes.draw do
 
   resources :friends
   # get 'home/index'
-  # root 'home#index'
-  root 'friends#index'
-  get 'home/about'
+  root 'home#index'
+  get 'friends#index'
 
   resources :memes, only: [:index]
   get 'memes/new_meme', to: 'memes#new_meme', as: :new_meme
