@@ -2,7 +2,13 @@
 
 <div class="card mx-auto" style="max-width: 500px;">
   <div class="card-body">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { method: :post }) do |f| %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
       <div class="mb-3">
         <%= f.label :email, class: "form-label" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -24,6 +30,7 @@
         <%= f.submit "Log in", class: "btn btn-primary" %>
       </div>
     <% end %>
+    
   </div>
 </div>
 
