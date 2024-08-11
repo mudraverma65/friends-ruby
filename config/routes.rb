@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   get 'home/about'
 
   resources :memes, only: [:index]
-  
+  get 'memes/new_meme', to: 'memes#new_meme', as: :new_meme
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

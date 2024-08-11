@@ -26,15 +26,15 @@ class MemesController < ApplicationController
     request["x-rapidapi-host"] = 'humor-jokes-and-memes.p.rapidapi.com'
 
     response = http.request(request)
-    memes = JSON.parse(response.body)
- 	@meme = memes.is_a?(Array) ? memes.first : memes # Ensure `@meme` is a single item
+  #   memes = JSON.parse(response.body)
+ 	# @meme = memes.is_a?(Array) ? memes.first : memes # Ensure `@meme` is a single item
     
- 	# if response.is_a?(Net::HTTPSuccess)
- 	# 	memes = JSON.parse(response.body)
- 	# 	@meme = memes.is_a?(Array) ? memes.first : memes # Ensure `@meme` is a single item
-  #   else
-  #     	@meme = nil
-  #   end
+ 	if response.is_a?(Net::HTTPSuccess)
+ 		memes = JSON.parse(response.body)
+ 		@meme = memes.is_a?(Array) ? memes.first : memes # Ensure `@meme` is a single item
+    else
+      	@meme = nil
+    end
     
   end
 end
