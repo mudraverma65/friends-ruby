@@ -5,6 +5,6 @@
 <br>
 
 <div class="text-center" style="max-width: 500px; margin: auto; margin-bottom: 20px;">
-  <%= link_to "Show this friend", @friend, class: "btn btn-primary" %> |
-  <%= link_to "Back to friends", friends_path, class: "btn btn-secondary" %>
+  <%= link_to "Back to friends", friends_path, class: "btn btn-secondary" %> |
+  <%= link_to "Unfriend", @friend, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
 </div>
